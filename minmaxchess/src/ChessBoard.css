@@ -1,0 +1,36 @@
+.button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+
+.buttonsContainer {
+    flex-direction: column;
+    flex:1 
+  }
+
+.board{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  }
+
+  .game-info {
+    margin-left: 80px;
+    text-align: center;
+  }
+  
+  .game-info-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
