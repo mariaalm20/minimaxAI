@@ -16,23 +16,19 @@ engine.onmessage = function (msg) {
 
 engine.postMessage('uci');
 
-app.use(express.json()); // for parsing application/json
-app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.post('/', (request, response) => {
   console.log(request.body.fen);
 
-  // if chess engine replies
   engine.onmessage = function (msg) {
-    console.log(msg);
-    // in case the response has already been sent?
     if (response.headersSent) {
       return;
     }
-    // only send response when it is a recommendation
     if (typeof (msg == 'string') && msg.match('bestmove')) {
       response.send(msg);
-      engine.postMessage('quit'); // Quit the engine after each game to release resources
+      engine.postMessage('quit');
     }
   };
 
